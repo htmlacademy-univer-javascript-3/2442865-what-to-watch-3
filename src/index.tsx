@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-
-const Description = {
-  name: 'Movie Name',
-  genre: 'Action',
-  year: 2022,
-};
+import { Description } from './const';
 
 
 const root = ReactDOM.createRoot(

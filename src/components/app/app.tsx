@@ -1,4 +1,4 @@
-import Main from "../../pages/main-screen/main-screen";
+import Main from '../../pages/main-screen/main-screen';
 
 type FilmCardProps = {
     name: string;
@@ -7,9 +7,9 @@ type FilmCardProps = {
 }
 
 function App(props: FilmCardProps): JSX.Element {
-    return (
-        <Main {...props} />
-    );
+  return (
+    <Main {...props} />
+  );
 }
 
 export default App;
