@@ -1,10 +1,10 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async';
 
 
 function PlayerScreen(): JSX.Element {
   return (
     <div className="player">
-       <Helmet>
+      <Helmet>
         <title>WTW. Player</title>
       </Helmet>
       <video src="#" className="player__video" poster="img/player-poster.jpg"></video>

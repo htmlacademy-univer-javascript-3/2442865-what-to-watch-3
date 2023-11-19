@@ -1,10 +1,10 @@
-import Logo from "../../components/logo/logo";
-import { Helmet } from "react-helmet-async";
+import Logo from '../../components/logo/logo';
+import { Helmet } from 'react-helmet-async';
 
 function SignInScreen(): JSX.Element {
   return (
     <div className="user-page">
-       <Helmet>
+      <Helmet>
         <title>WTW. Страница авторизации</title>
       </Helmet>
       <header className="page-header user-page__head">
