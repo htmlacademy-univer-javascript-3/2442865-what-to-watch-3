@@ -2,13 +2,14 @@ type FilmCardProps = {
     name: string;
     genre: string;
     year: number;
+    src: string;
 }
 
 function FilmCard(props: FilmCardProps): JSX.Element {
   return (
     <div className="film-card__info">
       <div className="film-card__poster">
-        <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+        <img src={props.src} alt={props.name} width="218" height="327" />
       </div>
 
       <div className="film-card__desc">

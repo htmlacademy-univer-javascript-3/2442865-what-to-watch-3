@@ -1,6 +1,7 @@
 import Main from '../../pages/main-screen/main-screen';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import {Film} from '../../types/film';
 import SignInScreen from '../../pages/sign-in-screen/sign-in-screen';
 import MyListScreen from '../../pages/my-list-screen/my-list-screen';
 import MovieScreen from '../../pages/movie-screen/movie-screen';
@@ -10,20 +11,15 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
 
-type FilmCardProps = {
-  name: string;
-  genre: string;
-  year: number;
-}
 
-function App(props: FilmCardProps): JSX.Element {
+function App({films}: {films: Film[]}): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={<Main {...props} />}
+            element={<Main films={films}/>}
           />
           <Route
             path={AppRoute.SignIn}
@@ -33,21 +29,21 @@ function App(props: FilmCardProps): JSX.Element {
             path={AppRoute.MyList}
             element={
               <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-                <MyListScreen />
+                <MyListScreen films={films}/>
               </PrivateRoute>
             }
           />
           <Route
             path={AppRoute.Film}
-            element={<MovieScreen />}
+            element={<MovieScreen films={films}/>}
           />
           <Route
             path={AppRoute.AddReview}
-            element={<AddReviewScreen />}
+            element={<AddReviewScreen films = {films} />}
           />
           <Route
             path={AppRoute.Player}
-            element={<PlayerScreen />}
+            element={<PlayerScreen films = {films} />}
           />
           <Route
             path="*"

@@ -1,7 +1,11 @@
 import { Helmet } from 'react-helmet-async';
+import {Film} from '../../types/film';
 
+interface PlayerScreenProps {
+  films: Film[];
+}
 
-function PlayerScreen(): JSX.Element {
+function PlayerScreen({films}: PlayerScreenProps): JSX.Element {
   return (
     <div className="player">
       <Helmet>
@@ -23,7 +27,7 @@ function PlayerScreen(): JSX.Element {
         <div className="player__controls-row">
           <button type="button" className="player__play">
             <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
+              <use xlinkHref={films[0].video}></use>
             </svg>
             <span>Play</span>
           </button>
