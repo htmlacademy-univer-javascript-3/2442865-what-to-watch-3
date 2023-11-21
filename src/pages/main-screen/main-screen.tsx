@@ -1,15 +1,14 @@
 import Logo from '../../components/logo/logo';
 import FilmCard from './film-card';
-import SmallFilmCard from '../../components/small-film-card';
+import ListFilms from '../../components/list-films/list-films';
 import {Helmet} from 'react-helmet-async';
+import {Film} from '../../types/film';
 
-type FilmCardProps = {
-    name: string;
-    genre: string;
-    year: number;
+interface MainScreenProps {
+  films: Film[];
 }
 
-function MainScreen(props: FilmCardProps): JSX.Element {
+function MainScreen({films}: MainScreenProps): JSX.Element {
   return (
     <div>
       <Helmet>
@@ -17,7 +16,7 @@ function MainScreen(props: FilmCardProps): JSX.Element {
       </Helmet>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={films[0].src} alt={films[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -38,7 +37,7 @@ function MainScreen(props: FilmCardProps): JSX.Element {
         </header>
 
         <div className="film-card__wrap">
-          <FilmCard {...props}/>
+          <FilmCard {...films[0]}/>
         </div>
       </section>
 
@@ -79,32 +78,12 @@ function MainScreen(props: FilmCardProps): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-            <SmallFilmCard name = {props.name}/>
-          </div>
+          <ListFilms films = {films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>
+
         </section>
 
         <footer className="page-footer">
